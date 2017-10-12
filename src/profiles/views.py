@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from .models import profile
 
 # Create your views here.
 def home(request):
@@ -10,6 +11,7 @@ def home(request):
 
 def about(request):
 	context = {}
+	model = profile
 	template = 'about.html'
 	return render(request,template,context)
 	print ('Im in BOUT')
