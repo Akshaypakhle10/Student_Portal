@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Portal</title>
+
+    
+</head>
+{% block home %}
+<body>
+    
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+               
+                <li>
+                    <a href="#" style="padding-top: 20px;"><i class="fa fa-dashcube" aria-hidden="true"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> Timetable</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-building-o" aria-hidden="true"></i> Assignments</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i> Sample Papers</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-book" aria-hidden="true"></i> Reference Material</a>
+                </li>
+               
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" style="padding-top: 40px; padding-left: 40px;">
+            <div class="container-fluid">
+                <h1>Simple Sidebar</h1>
+                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#MyPortal").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+{% endblock %}
+</body>
+
+</html>

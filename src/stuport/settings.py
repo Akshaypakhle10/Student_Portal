@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'profiles',
     'contact',
+    'portal',
     'crispy_forms',
     'django.contrib.sites',
 

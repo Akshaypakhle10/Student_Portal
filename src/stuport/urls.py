@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from profiles import views as profile_views
 from contact import views as contact_views
+from portal import views as portal_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^about/$', profile_views.about, name='about'),
     url(r'^profile/$', profile_views.userProfile, name='profile'),
     url(r'^contact/$', contact_views.contact, name='contact'),
+    url(r'^portal/$', portal_views.portal, name='portal'),
     url(r'^accounts/', include('allauth.urls')),
 
 ]
