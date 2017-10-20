@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{##}
+{#    <form class="form-horizontal bg-faded " action="" method="post" enctype="multipart/form-data">#}
+{#                {% csrf_token %}#}
+{#                #}
+{#            </form>#}
+        <form class="form-horizontal bg-faded "  role="search" method="get"  action="{% url 'music:search' %}">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search <i class="fa fa-search"></i> </button>
+        </form>
+{% endblock %}
