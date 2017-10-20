@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', profile_views.home, name='home'),
     url(r'^about/$', profile_views.about, name='about'),
     url(r'^profile/$', profile_views.userProfile, name='profile'),
+    url(r'^profile/edit/$', profile_views.Edit_profile.as_view(), name='edit_profile'),
     url(r'^contact/$', contact_views.contact, name='contact'),
     url(r'^accounts/', include('allauth.urls')),
 
