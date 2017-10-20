@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
 from .models import Profile
 from django.contrib.auth.models import User
 
@@ -47,4 +46,24 @@ def home(request):
     return render(request,template,context)
 
 def edit_profile(request):
-    return render('edit')
+    context = {}
+    user = request.user
+    profile = Profile.objects.get_or_create(user=user)[0]
+    if request.method == "POST":
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        profile.phone_no= request.POST['phone_no']
+        profile.secondary_no= request.POST['secondary_no']
+        profile.address= request.POST['address']
+        user.save()
+        profile.save()
+        return redirect("/profile")
+    else:
+        context['first_name']=user.first_name
+        context['last_name']=user.last_name
+        context['phone_no']=profile.phone_no
+        context['secondary_no'] = profile.secondary_no
+        context['address'] = profile.address
+
+
+    return render(request,'edit_profile.html',context)

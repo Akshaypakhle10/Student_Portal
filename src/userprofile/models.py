@@ -9,7 +9,9 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+    phone_no = models.CharField(max_length=12,default="+91")
+    secondary_no = models.CharField(max_length=12,default="+91")
+    address = models.TextField(default="")
 
     def __str__(self):  # __unicode__ for Python 2
         return self.user.username

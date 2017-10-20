@@ -12,14 +12,12 @@ def home(request):
 	context = {}
 	template = 'home.html'
 	return render(request,template,context)
-	print ('Im in home')
 
 def about(request):
 	context = {}
 	model = profile
 	template = 'about.html'
 	return render(request,template,context)
-	print ('Im in BOUT')
 
 @login_required
 def edit_profile(request):
@@ -64,4 +62,3 @@ def userProfile(request):
 	context = {'user':user}
 	template = 'profile.html'
 	return render(request,template,context)
-	print ('Im in USEP')

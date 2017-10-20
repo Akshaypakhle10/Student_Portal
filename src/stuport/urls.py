@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^contact/$', contact_views.contact, name='contact'),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^',include('userpofile.urls'))
+    url(r'^',include('userprofile.urls'))
 ]
 
 if settings.DEBUG:
