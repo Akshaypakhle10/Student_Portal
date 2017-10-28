@@ -41,20 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'profiles',
     'contact',
-
     'portal',
-
-
-
     'crispy_forms',
     'django.contrib.sites',
-
+   
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-    'userprofile'
 ]
 
 MIDDLEWARE = [
@@ -72,7 +67,7 @@ ROOT_URLCONF = 'stuport.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,7 +139,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 if DEBUG:
     MEDIA_URL = '/media/'

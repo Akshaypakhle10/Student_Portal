@@ -3,43 +3,168 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-	<link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+  <title>Home</title>
+  
+  <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
 </head>
 <body>
 {% block home %}
+<style>
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
+<div style="background-color: #D0D3D4">
+  <div class="container" >
+         <h2 style="font-size:20px">Academic Status</h2>
+        <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'timetable')">Time Table</button>
+  <button class="tablinks" onclick="openCity(event, 'Curriculum')">Curriculum</button>
+  
+  </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+  <div id="timetable" class="tabcontent">
+   
+    <p>Timetable not created yet for this semester</p>
+  </div>
+
+  <div id="Curriculum" class="tabcontent">
+    
+   <ul >
+          
+          <li>Semester 3</li>
+            <ul>
+              <li>Discrete Structures</li>
+              <li>Digital Logic Design Analysis</li>
+              <li>Data Structures</li>
+              <li>Object Oriented Programming Methodology (OOPM)</li>
+              <li>Applied Mathematics-III</li>
+              <li>Electronics Circuits and Communication Fundamentals</li>
+          </ul>
+          <li>Semester 4</li>
+            <ul>
+              <li>Computer Graphics</li>
+              <li>Theoretical Computer Science</li>
+              <li>Database Management System (DBMS)</li>
+              <li>Computer Organization and Architecture</li>
+              <li>Analysis of Algorithm</li>
+              <li>Applied Mathematics IV</li>
+          </ul>
+          <li>Semester 5</li>
+            <ul>
+              <li>Operating System</li>
+              <li>Microprocessor</li>
+              <li>Computer Networks</li>
+              <li>Structured and Object Oriented Analysis and Design</li>
+              <li>Web Technologies</li>
+              <li>Business Communication and Ethics</li>
+          </ul>
+          <li>Semester 6</li>
+            <ul>
+              <li>Network Programming Laboratory</li>
+              <li>Software Project Management</li>
+              <li>Mobile Communication and Computing</li>
+              <li>Distributed Databases</li>
+              <li>Software Engineering</li>
+              <li>System Programming and Compiler Construction</li>
+          </ul>
+          <li>Semester 7</li>
+            <ul>
+              <li>Network Threats and Attacks Laboratory</li>
+              <li>Software Architecture</li>
+              <li>Artificial Intelligence</li>
+              <li>Cryptography and System Security</li>
+              <li>Digital Signal Processing</li>
+              <li>Soft Computing</li>
+          </ul>
+          <li>Semester 8</li>
+            <ul>
+              <li>Cloud Compuing Laboratory</li>
+              <li>Digital Forensic</li>
+              <li>Parallel and Distributed Systems</li>
+              <li>Human Machine Interaction</li>
+              <li>Data Warehouse and Mining</li>
+              <li>Big Data Analytics</li>
+          </ul>
+      </ul>
+  </div>
+
+
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2 style="font-size:20px">Academic Alerts</h2>
+            <ul style="list-style-type:square">
+          <li>Examination timetable available on Mumbai Unversity website</li>
+          <li>Exam form to be submitted in examination section before 30th october</li>
+          <li>Practical Exam timetable available on college website</li>
+      </ul>
+          </div>
+          <div class="col-md-8">
+            <iframe src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia/Calcutta" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+          </div>
+          
         </div>
       </div>
-    </div>  
+</div>      
+    <script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
 {% endblock %}
 
 </body>
 </html>
-

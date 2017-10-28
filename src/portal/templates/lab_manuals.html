@@ -1,0 +1,41 @@
+{% extends 'portal.html' %}
+
+{% block abc %}
+<title>Lab Manuals</title>
+  
+{% if file %}
+    <div class="container">
+      
+        <div class="row">
+          {% for each in file %}
+          <div class="col-md-6" style="padding: 20px ">
+            <h5>{{ each.Title }}</h5>
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+                Uploaded On: {{ each.timestamp }}</p>
+            
+
+              <iframe id="iframe" frameBorder="1" src="{{  each.file.url  }}">
+              </iframe>
+            <hr>
+            
+              <a class="embed" href="{{  each.file.url  }}">
+              <button type="button" class="btn btn-default " style="cursor: pointer;">View</button>
+              </a>
+              <a href="{{  each.file.url  }}" download>
+                <button type="button" class="btn btn-success " style="cursor: pointer;">Download</button>
+              </a>
+              <hr>
+          </div>
+          {% endfor %}
+        </div>
+      
+    </div>
+    
+
+    
+{% endif %}
+<!-- PDF  -->
+    <script type="text/javascript">
+      $('#iframe').media({width:800, height:400});
+    </script>
+{% endblock %}

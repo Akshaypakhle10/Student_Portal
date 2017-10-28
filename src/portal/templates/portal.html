@@ -9,11 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <!-- media.js -->
+    <script type="text/javascript" src="http://github.com/malsup/media/raw/master/jquery.media.js?v0.92">
+    </script> 
+    <script type="text/javascript" src="jquery.metadata.js"></script> 
+    <!-- google doc viewer -->
+    <script type="text/javascript" src="jquery.gdocsviewer.min.js"></script>
     <title>My Portal</title>
 
     
 </head>
+<style type="text/css">
+    button {cursor: pointer};
+</style>
+
 {% block home %}
 <body>
     
@@ -24,33 +33,37 @@
             <ul class="sidebar-nav">
                
                 <li>
-                    <a href="#" style="padding-top: 20px;"><i class="fa fa-dashcube" aria-hidden="true"></i> Dashboard</a>
+                    <a href="{% url 'lab_manuals' %}" style="padding-top: 20px;"><i class="fa fa-dashcube" aria-hidden="true"></i> Lab Manuals</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> Timetable</a>
+                    <a href="{% url 'timetable' %}"><i class="fa fa-clock-o" aria-hidden="true"></i> Timetable</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-building-o" aria-hidden="true"></i> Assignments</a>
+                    <a href="{% url 'assignments' %}"><i class="fa fa-building-o" aria-hidden="true"></i> Assignments</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i> Sample Papers</a>
+                    <a href="{% url 'sample_papers' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Sample Papers</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-book" aria-hidden="true"></i> Reference Material</a>
+                    <a href="{% url 'reference_material' %}"><i class="fa fa-book" aria-hidden="true"></i> Reference Material</a>
                 </li>
                
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper" style="padding-top: 40px; padding-left: 40px;">
-            <div class="container-fluid">
-                <h1>Simple Sidebar</h1>
-                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+        <div id="page-content-wrapper" style="padding-top: 40px; padding-left: 40px ">
+            
+            <div class="jumbotron" style="background-color: #113E6B; color: #FFFFFF">
+              <div class="container-fluid">
+                <h1 class="display-5">{{ request.path.title }}</h1>
+                <p>Please dowload the required files.</p>
+              </div>
             </div>
+            {% block abc %}
+            {% endblock %}
         </div>
+        
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -60,6 +73,7 @@
     <script src="{% static 'jquery/jquery.min.js' %}"></script>
     <script src="{% static 'javascript/bootstrap.bundle.min.js' %}"></script>
 
+    
     <!-- Menu Toggle Script -->
     <script>
     $("#MyPortal").click(function(e) {
@@ -67,6 +81,7 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+    
 {% endblock %}
 </body>
 

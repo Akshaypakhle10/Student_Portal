@@ -1,64 +1,81 @@
+from django.contrib.auth import login, authenticate,logout
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.shortcuts import HttpResponseRedirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render,redirect
-from .models import profile
+from .models import Profile
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-from .forms import EditInfo
-from django.contrib.auth.forms import UserChangeForm
-from django.views.generic import View
+from .utils import now
 
-# Create your views here.
-def home(request):
-	context = {}
-	template = 'home.html'
-	return render(request,template,context)
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('alltracks')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
+
 
 def about(request):
-	context = {}
-	model = profile
-	template = 'about.html'
-	return render(request,template,context)
-
-@login_required
-def edit_profile(request):
-	if request.method=="POST":
-		print ("POST\n")
-		form=EditInfo(request.POST)
-		if form.is_valid():
-			print("Valid")
-			post=form.save(commit=False)
-			post.user=request.user
-			post.save()
-		return HttpResponseRedirect('/profile/')
-
-
-	else:
-		form=EditInfo()
-		template = 'edit_profile.html'
-		context={'form':form}
-		return render(request,template,context)
-
-class Edit_profile(View):
-    form_class = EditInfo
-    template_name = 'edit_profile.html'
-
-
-    # Display blank form
-    def get(self, request):
-        form = self.form_class()
-        return render(request, self.template_name, {'form': form})
-
-    # process form data
-    def post(self, request):
-        form = self.form_class(request.POST)
-
-        if form.is_valid():
-            album = form.save(commit=False)  # we are not actually stroing in the database
-            album.save()
+    context = {}
+    template = 'about.html'
+    return render(request,template,context)
 
 @login_required
 def userProfile(request):
-	user = request.user
-	context = {'user':user}
-	template = 'profile.html'
-	return render(request,template,context)
+    user = request.user
+    profile = Profile.objects.get_or_create(user=user)[0]
+    context = {'user':user,
+                'profile':profile,
+                'now':now
+    }
+    template = 'profile.html'
+    return render(request,template,context)
+
+
+def logout_view(request):
+    logout(request)
+    messages.add_message(request, messages.SUCCESS, 'Successfully Logged Out')
+    return HttpResponseRedirect('/login/')
+
+def home(request):
+    context = {}
+    template = 'home.html'
+    return render(request,template,context)
+
+def edit_profile(request):
+    context = {}
+    user = request.user
+    profile = Profile.objects.get_or_create(user=user)[0]
+    if request.method == "POST":
+        user.first_name= request.POST['first_name']
+        user.last_name= request.POST['last_name']
+        profile.phone_no= request.POST['phone_no']
+        profile.secondary_no= request.POST['secondary_no']
+        profile.address= request.POST['address']
+        profile.f_name=request.POST['f_name']
+        profile.m_name=request.POST['m_name']
+        profile.dob=request.POST['dob']
+        user.save()
+        profile.save()
+        return redirect("/profile")
+        
+    else:
+        context['first_name']=user.first_name
+        context['last_name']=user.last_name
+        context['phone_no']=profile.phone_no
+        context['secondary_no'] =profile.secondary_no
+        context['address'] = profile.address
+        context['f_name']=profile.f_name
+        context['m_name']=profile.m_name
+        context['dob']=profile.dob
+
+
+    return render(request,'edit_profile.html',context)

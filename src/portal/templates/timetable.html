@@ -1,0 +1,28 @@
+{% extends 'portal.html' %}
+
+{% block abc %}
+<title>Timetable</title>
+
+{% if file %}
+    <div class="container">
+      
+        <div class="row">
+          {% for each in file %}
+          <div class="col-md-10" style="padding: 20px ">
+            <h5>{{ each.Title }}</h5>
+            <h6>For : {{each.Div}}</h6>
+            <img src="{{ each.Image.url }}" class="img img-responsive" style="width:100%">
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+                Uploaded On: {{ each.timestamp }}
+            </p>
+            <a href="{{  each.file.url  }}" download>
+              <button type="button" class="btn btn-success">Download</button>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      
+    </div>
+    
+{% endif %}
+{% endblock %}

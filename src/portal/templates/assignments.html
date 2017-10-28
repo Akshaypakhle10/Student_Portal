@@ -1,0 +1,26 @@
+{% extends 'portal.html' %}
+
+{% block abc %}
+<title>Assignments</title>
+
+{% if file %}
+    <div class="container">
+      
+        <div class="row">
+          {% for each in file %}
+          <div class="col-md-4" style="padding: 20px ">
+            <h5>{{ each.Title }}</h5>
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+
+            Uploaded On: {{ each.timestamp }}</p>
+            <a href="{{  each.file.url  }}" download>
+              <button type="button" class="btn btn-success" style="cursor: pointer;">Download</button>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      
+    </div>
+    
+{% endif %}
+{% endblock %}

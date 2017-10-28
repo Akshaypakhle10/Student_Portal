@@ -1,0 +1,32 @@
+{% extends 'portal.html' %}
+
+{% block abc %}
+<title>Sample Papers</title>
+
+{% if file %}
+    <div class="container">
+      
+        <div class="row">
+          {% for each in file %}
+          <div class="col-md-4" style="padding: 20px ">
+            <h5>{{ each.Title }}</h5>
+            <p>
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+              Uploaded On: {{ each.timestamp }}
+            </p>
+            <a class="embed" href="{{  each.file.url  }}">
+              <button type="button" class="btn btn-default active" style="cursor: pointer;">View</button>
+            </a>
+            <a href="{{  each.file.url  }}" download>
+              <button type="button" class="btn btn-success" style="cursor: pointer;">Download</button>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      
+    </div>
+    
+{% endif %}
+<script type="text/javascript">$('a.embed').gdocsViewer();</script>
+{% endblock %}

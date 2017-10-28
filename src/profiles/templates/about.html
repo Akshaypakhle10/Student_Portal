@@ -1,8 +1,52 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	
+	<link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+</head>
+<body>
 
 
 {% block content %}
+ <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+        
+       <img src="http://www.applane.com/wp-content/uploads/2016/03/Alumni-Management.png" style="margin:0px 50px">
+        
+      </div>
+      <div class="col-md-3">
+      </div>
+     </div>
+     <div class="row">
+     	<div class="col-md-3">
+     	</div>
+     	<div class="col-md-6">
+     	<p align="center">A student portal is an online gateway where students can log into the website to access important program information.</p></div>
+     	<div class="col-md-3">
+     	</div>
+     	<div class="col-md-2">
+     	</div>
+     	<div class="col-md-8">
+     	<p align="center">Student portal contain information on courses offered, transcripts, email programs, timetables, exam schedules and department contact numbers. This also offer links to useful Web resources, such as research tools and online journals.</p></div>
+     	<div class="col-md-2">
+     	</div>
+     	<div class="col-md-2">
+     	</div>
+     	<div class="col-md-8">
+     	<p align="center">Using the portal instead of printing information in booklets saves printing and paper costs. It also benefits the environment by using fewer resources. The portal makes it easier for students to access important information from anywhere at any time of day.</p></div>
+     	<div class="col-md-2">
+     	</div>
 
-<h1>Hello {{ user.firstname }}</h1>
-
+     </div>
+    </div>  
 {% endblock %}
+</body>
+</html>
+
