@@ -15,10 +15,31 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
-  background-color: #ddd;
+  background-color: #125C75;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
 }
-
-
+}
+html,body{
+    height: 100%
+}
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 60px; /* .push must be the same height as .footer */
+}
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */

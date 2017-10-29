@@ -19,61 +19,75 @@
 
     
 </head>
-<style type="text/css">
-    button {cursor: pointer};
-</style>
 
 {% block home %}
-<body>
-    
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-               
-                <li>
-                    <a href="{% url 'lab_manuals' %}" style="padding-top: 20px;"><i class="fa fa-dashcube" aria-hidden="true"></i> Lab Manuals</a>
-                </li>
-                <li>
-                    <a href="{% url 'timetable' %}"><i class="fa fa-clock-o" aria-hidden="true"></i> Timetable</a>
-                </li>
-                <li>
-                    <a href="{% url 'assignments' %}"><i class="fa fa-building-o" aria-hidden="true"></i> Assignments</a>
-                </li>
-                <li>
-                    <a href="{% url 'sample_papers' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Sample Papers</a>
-                </li>
-                <li>
-                    <a href="{% url 'reference_material' %}"><i class="fa fa-book" aria-hidden="true"></i> Reference Material</a>
-                </li>
-               
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper" style="padding-top: 40px; padding-left: 40px ">
+<body style="margin: 0;padding: 0;height: 100vh">
+       
+        <div id="wrapper">
+            {% url 'portal' as portal %}
             
-            <div class="jumbotron" style="background-color: #113E6B; color: #FFFFFF">
-              <div class="container-fluid">
-                <h1 class="display-5">{{ request.path.title }}</h1>
-                <p>Please dowload the required files.</p>
-              </div>
-            </div>
-            {% block abc %}
-            {% endblock %}
-        </div>
-        
-        <!-- /#page-content-wrapper -->
+            <!-- Sidebar -->
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                       
+                        <li>
+                            <a href="{% url 'lab_manuals' %}" style="padding-top: 60px;"><i class="fa fa-dashcube" aria-hidden="true"></i> Lab Manuals</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'timetable' %}"><i class="fa fa-clock-o" aria-hidden="true"></i> Timetable</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'assignments' %}"><i class="fa fa-building-o" aria-hidden="true"></i> Assignments</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'sample_papers' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Sample Papers</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'reference_material' %}"><i class="fa fa-book" aria-hidden="true"></i> Reference Material</a>
+                        </li>
+                   
+                </div>
 
-    </div>
+            <!-- /#sidebar-wrapper -->
+            
+            <!-- Page Content -->
+            {% if request.path == portal %}
+            
+            <div id="particles-js" style="height: 100%; background:#0B3055 ">
+                <div class="hero-text" style="top: 50%;left: 50%;transform: translate(-50%, -50%);position: absolute;color: #fff">
+                    <h1 style="font-size:40px">Welcome to your Portal!</h1>
+                    <div >
+                        <h1 style="font-size: 4rem;color:#F5FF1B;font-weight: 700"> @{{ user.username }}</h1>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if not request.path == portal %}
+            <div id="page-content-wrapper" style="padding-top: 80px; padding-left: 40px ;padding-right:40px">
+                
+                <div class="jumbotron" style="background-color: #113E6B; color: #FFFFFF ">
+                  <div class="container-fluid">
+                    <h1 class="display-5">{{ request.path.title }}</h1>
+                    <p>Please dowload the required files.</p>
+                  </div>
+                </div>
+                    {% block abc %}
+                    {% endblock %}
+               
+                
+            </div>
+            {% endif %}    
+            <!-- /#page-content-wrapper -->
+
+        </div>
     <!-- /#wrapper -->
+   
 
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'jquery/jquery.min.js' %}"></script>
     <script src="{% static 'javascript/bootstrap.bundle.min.js' %}"></script>
 
-    
+
     <!-- Menu Toggle Script -->
     <script>
     $("#MyPortal").click(function(e) {
@@ -81,7 +95,9 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-    
+    <!-- Particles.js -->
+    <script type="text/javascript" src="{% static 'javascript/particles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/app.js' %}"></script>
 {% endblock %}
 </body>
 
