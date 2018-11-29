@@ -11,5 +11,5 @@ This is a basic Django Based Web Project for managing student activities online.
 7. python manage.py runserver
 
 #Screenshots
-![Alt text](/static/media/SS/Screenshot (30).png?raw=true "Optional Title")
+![ScreenShot](https://raw.githubusercontent.com/i-saumitra/Voice-controlled-MP3-Player/master/screenshot.jpg)
 
