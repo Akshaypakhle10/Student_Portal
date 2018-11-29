@@ -11,5 +11,5 @@ This is a basic Django Based Web Project for managing student activities online.
 7. python manage.py runserver
 
 #Screenshots
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](/static/media/SS/Screenshot (30).png?raw=true "Optional Title")
 
