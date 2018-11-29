@@ -12,4 +12,4 @@ This is a basic Django Based Web Project for managing student activities online.
 
 # Screenshots:
 
-![](/static/media/SS/filename Screenshot (30).png)
+![](/static/media/SS/filename%20Screenshot (30).png)
