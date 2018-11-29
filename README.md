@@ -3,7 +3,7 @@ This is a basic Django Based Web Project for managing student activities online.
 
 # Installation:
 1. Download zip/ clone project
-2. Go to the project location and open the folder manually or via command prompt/terminal.
+2. Go to the project location and open the folder via command prompt/terminal.
 3. virtualenv env
 4. env\scripts\activate
 5. pip install -r requirements.txt
