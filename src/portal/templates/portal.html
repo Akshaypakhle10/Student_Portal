@@ -16,7 +16,7 @@
     <!-- google doc viewer -->
     <script type="text/javascript" src="jquery.gdocsviewer.min.js"></script>
     <title>My Portal</title>
-
+    <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
     
 </head>
 
@@ -53,11 +53,11 @@
             <!-- Page Content -->
             {% if request.path == portal %}
             
-            <div id="particles-js" style="height: 100%; background:#0B3055 ">
+            <div id="particles-js" style="height: 100%; background:#073342 ">
                 <div class="hero-text" style="top: 50%;left: 50%;transform: translate(-50%, -50%);position: absolute;color: #fff">
-                    <h1 style="font-size:40px">Welcome to your Portal!</h1>
+                    <h1 style="font-size:2rem ;font-family: 'Allerta Stencil';color:#F5FF1B">Welcome to your Portal!</h1>
                     <div >
-                        <h1 style="font-size: 4rem;color:#F5FF1B;font-weight: 700"> @{{ user.username }}</h1>
+                        <h1  style="text-align: center; font-family: 'Allerta Stencil';font-size: 40px;"> @{{ user.username }}</h1>
                     </div>
                 </div>
             </div>
