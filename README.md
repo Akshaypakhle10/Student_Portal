@@ -10,6 +10,9 @@ This is a basic Django Based Web Project for managing student activities online.
 6. cd src
 7. python manage.py runserver
 
-#Screenshots
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+# Screenshots:
 
+![Screenshot](https://github.com/Akshaypakhle10/Student_Portal/blob/master/static/media/SS/Screenshot%20(30).png)
+![Screenshot](https://github.com/Akshaypakhle10/Student_Portal/blob/master/static/media/SS/Screenshot%20(31).png)
+![Screenshot](https://github.com/Akshaypakhle10/Student_Portal/blob/master/static/media/SS/Screenshot%20(32).png)
+![Screenshot](https://github.com/Akshaypakhle10/Student_Portal/blob/master/static/media/SS/Screenshot%20(33).png)
